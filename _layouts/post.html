@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
     <script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </head>
   <body>
@@ -20,5 +23,6 @@
       "HTML-CSS": { availableFonts: ["TeX"] }
     });
   </script>
+  <script>console.log('\nEnd loading\n***');</script>
   </body>
 </html>
