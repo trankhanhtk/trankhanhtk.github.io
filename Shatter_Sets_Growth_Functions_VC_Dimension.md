@@ -7,7 +7,7 @@ permalink: /shatter-sets-growth-functions-VC-dimension
 This note summarizes three basic concepts in Machine Learning: the shatter set, the growth function and the VC dimension.
 
 ## Shatter Sets
-Suppose $S$ is a set and $`\mathcal{F}`$ is a class of sets. The class $\mathcal{F}$ shatters the set $S$ if for each subset $s$ of $S$, there exists some element $f\in\mathcal{F}$ such that:
+Suppose $S$ is a set and `$\mathcal{F}$` is a class of sets. The class $\mathcal{F}$ shatters the set $S$ if for each subset $s$ of $S$, there exists some element $f\in\mathcal{F}$ such that:
 
 $$
 s=f\cap S.
