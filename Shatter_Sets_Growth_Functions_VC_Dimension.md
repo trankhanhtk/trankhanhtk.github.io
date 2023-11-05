@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 title: "Shatter Sets, Growth Functions & VC Dimension"
 permalink: /shatter-sets-growth-functions-VC-dimension
 ---
