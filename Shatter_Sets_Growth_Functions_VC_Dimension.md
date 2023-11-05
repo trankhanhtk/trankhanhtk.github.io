@@ -4,10 +4,11 @@ title: "Shatter Sets, Growth Functions & VC Dimension"
 permalink: /shatter-sets-growth-functions-VC-dimension
 ---
 
+
 This note summarizes three basic concepts in Machine Learning: the shatter set, the growth function and the VC dimension.
 
 ## Shatter Sets
-Suppose $S$ is a set and $\mathcal{F}$ is a class of sets. The class $\mathcal{F}$ shatters the set $S$ if for each subset $s$ of $S$, there exists some element $f \in \mathcal{F}$ such that:
+Suppose $S$ is a set and $\mathcal{F}$ is a class of sets. The class $\mathcal{F}$ shatters the set $S$ if for each subset $s$ of $S$, there exists some element $f\in\mathcal{F}$ such that:
 
 $$
 s=f\cap S.
@@ -34,23 +35,24 @@ $$
 
 
 ## Shattering in Context of the Function
-Let $\mathcal{H}$ be a hypothesis class of binary classifiers from the domain set $\mathcal{X}$ to $\{0, 1\}$. Let $C=\lbrace c_{1}, c_{2},..., c_{m}\rbrace$ be a subset of $\mathcal{X}$ and denote by $\mathcal{H}_{C}$ the restriction of $\mathcal{H}$ to $C$, that is:
+Let $\mathcal{H}$ be a hypothesis class of binary classifiers from the domain set $\mathcal{X}$ to $\{0, 1\}$. Let $C=\lbrace c\_{1}, c\_{2},..., c\_{m}\rbrace$ be a subset
+$\mathcal{X}$ and denote by $\mathcal{H}\_{C}$ the restriction of $\mathcal{H}$ to $C$, that is:
 
-$$\mathcal{H}_{C} = \lbrace \langle h( c_{1} ), h( c_{2} ),..., h( c_{m} ) \rangle : h \in \mathcal{H} \rbrace .$$
+$$\mathcal{H}\_{C} = \lbrace \langle h( c\_{1} ), h( c\_{2} ),..., h( c\_{m} ) \rangle : h \in \mathcal{H} \rbrace .$$
 
-We say that $\mathcal{H}$ shatters $C$ if $\mathcal{H}_{C}$ is the set of all functions from $C$ to $\lbrace 0, 1\rbrace$. Clearly, if $\mathcal{H}$ shatters $C$ then $\mathcal{H}_{C} = 2^{C}$. When the intersection $\mathcal{H} \cup C$ is defined like in equation , that is:
+We say that $\mathcal{H}$ shatters $C$ if $\mathcal{H}\_{C}$ is the set of all functions from $C$ to $\lbrace 0, 1\rbrace$. Clearly, if $\mathcal{H}$ shatters $C$ then $\left|\mathcal{H}\_{C}\right|=2^{\left|C\right|}$. When the intersection $|\mathcal{H}\cup C|$ is defined like in equation $\eqref{eq1}$, that is:
 
 $$
 \mathcal{H}\cup C := \lbrace h\cup C: h\in\mathcal{H}\rbrace
 $$
 
-We can also see, from the definition of $\mathcal{H}_{C}$, that: $\mathcal{H}_{C} = \mathcal{H}\cup C$
+We can also see, from the definition of $\mathcal{H}\_{C}$, that: $\mathcal{H}\_{C} = \mathcal{H}\cup C$
 
 ## The VC dimension
 The VC dimension of the hypothesis class $\mathcal{H}$ of binary classiers from the domain set $\mathcal{X}$ to $\{0, 1\}$ is defined to be the maximal size of the set $C\subset\mathcal{X}$ that is shattered by $\mathcal{H}$:
 
 $$
-VCdim(\mathcal{H}) := \max_{C\subset\mathcal{X}:\mathcal{H}_{C}=\mathcal{P}(C)} |C|
+VCdim(\mathcal{H}) := \max\_{C\subset\mathcal{X}:\mathcal{H}\_{C}=\mathcal{P}(C)} |C|
 $$
 
 ## Growth Function
@@ -59,9 +61,11 @@ The growth function of $\mathcal{H}$ is a function of the size of a set $C\subse
 
 
 $$
-\tau_{\mathcal{H}}(m):=\underset{C\subset\mathcal{X}:|C|=m}{max}|\mathcal{H}_{{C}}|.
+\tau\_{\mathcal{H}}(m):=\underset{C\subset\mathcal{X}:|C|=m}{max}|\mathcal{H}\_{{C}}|.
 $$
 
 
 
-Traditionally we denote the restriction of $\mathcal{H}$ to $C$ by $\mathcal{H}|_{C}$.
+Traditionally we denote the restriction of $\mathcal{H}$ to $C$ by $\mathcal{H}|\_{C}$.
+
+
