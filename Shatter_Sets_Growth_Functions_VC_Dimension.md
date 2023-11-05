@@ -4,6 +4,8 @@ title: "Shatter Sets, Growth Functions & VC Dimension"
 permalink: /shatter-sets-growth-functions-VC-dimension
 ---
 
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 This note summarizes three basic concepts in Machine Learning: the shatter set, the growth function and the VC dimension.
 
 ## Shatter Sets
