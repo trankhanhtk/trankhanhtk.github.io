@@ -6,7 +6,7 @@ permalink: /
 <h2>Latest Blogs</h2>
 
 {% for post in site.posts %}
-  <div class="pt-3">
+  <div class="mt-5">
     <h4><a href="{{ post.url }}" title="{{ post.title }}" class="link-dark">{{ post.title }}</a></h4>
     {% if post.excerpt %}
       <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2 text-dark mt-2 text-dark link-underline link-underline-opacity-0">{{ post.excerpt }}</a>
