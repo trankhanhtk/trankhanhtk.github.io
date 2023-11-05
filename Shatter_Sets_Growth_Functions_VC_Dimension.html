@@ -4,10 +4,10 @@ title: "Shatter Sets, Growth Functions & VC Dimension"
 permalink: /shatter-sets-growth-functions-VC-dimension
 ---
 
-
 This note summarizes three basic concepts in Machine Learning: the shatter set, the growth function and the VC dimension.
 
-## Shatter Sets
+<h2>Shatter Sets</h2>
+
 Suppose $S$ is a set and $\mathcal{F}$ is a class of sets. The class $\mathcal{F}$ shatters the set $S$ if for each subset $s$ of $S$, there exists some element $f\in\mathcal{F}$ such that:
 
 $$
@@ -34,7 +34,8 @@ $$
 $$
 
 
-## Shattering in Context of the Function
+<h2>Shattering in Context of the Function</h2>
+
 Let $\mathcal{H}$ be a hypothesis class of binary classifiers from the domain set $\mathcal{X}$ to $\{0, 1\}$. Let $C=\lbrace c_{1}, c_{2},..., c_{m}\rbrace$ be a subset
 $\mathcal{X}$ and denote by $\mathcal{H}_{C}$ the restriction of $\mathcal{H}$ to $C$, that is:
 
@@ -55,7 +56,7 @@ $$
 VCdim(\mathcal{H}) := \max_{C\subset\mathcal{X}:\mathcal{H}_{C}=\mathcal{P}(C)} |C|
 $$
 
-## Growth Function
+<h2>Growth Function</h2>
 
 The growth function of $\mathcal{H}$ is a function of the size of a set $C\subset\mathcal{X}$ that measures "effective" size of the hypothesis class $\mathcal{H}$ restricted on a subset of $\mathcal{X}$ of size $m$, that is:
 
