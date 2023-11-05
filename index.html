@@ -8,8 +8,8 @@ permalink: /
 {% for post in site.posts %}
   <div class="pt-3">
     <h4><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
-    {% if post.summary %}
-      <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2">{{ post.summary }}</a>
+    {% if post.excerpt %}
+      <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2">{{ post.excerpt }}</a>
     {% endif %}
   </div>
 {% endfor %}
