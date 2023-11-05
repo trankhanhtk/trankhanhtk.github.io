@@ -5,11 +5,13 @@ permalink: /
 ---
 <h1>Latest Blogs</h1>
 
-{% for post in site.posts %}
-  <div class="mt-3">
-    <h3 class="h4"><a href="{{ post.url }}" title="{{ post.title }}" class="link-dark">{{ post.title }}</a></h3>
-    {% if post.excerpt %}
-      <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2 text-dark mt-2 text-dark link-underline link-underline-opacity-0">{{ post.excerpt }}</a>
-    {% endif %}
-  </div>
-{% endfor %}
+<div class="mt-5">
+  {% for post in site.posts %}
+    <article class="mt-3">
+      <h3 class="h4"><a href="{{ post.url }}" title="{{ post.title }}" class="link-dark">{{ post.title }}</a></h3>
+      {% if post.excerpt %}
+        <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2 text-dark mt-2 text-dark link-underline link-underline-opacity-0">{{ post.excerpt }}</a>
+      {% endif %}
+    </article>
+  {% endfor %}
+</div>
