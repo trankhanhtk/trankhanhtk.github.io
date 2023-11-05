@@ -38,7 +38,7 @@ Let $\mathcal{H}$ be a hypothesis class of binary classifiers from the domain se
 
 $$\mathcal{H}_{C} = \lbrace \langle h( c_{1} ), h( c_{2} ),..., h( c_{m} ) \rangle : h \in \mathcal{H} \rbrace .$$
 
-We say that $\mathcal{H}$ shatters $C$ if $\mathcal{H}_{C}$ is the set of all functions from $C$ to $\lbrace 0, 1\rbrace$. Clearly, if $\mathcal{H}$ shatters $C$ then $|\mathcal{H}_{C}|=2^{|C|}$. When the intersection $|\mathcal{H}\cup C|$ is defined like in equation $\eqref{eq1}$, that is:
+We say that $\mathcal{H}$ shatters $C$ if $\mathcal{H}_{C}$ is the set of all functions from $C$ to $\lbrace 0, 1\rbrace$. Clearly, if $\mathcal{H}$ shatters $C$ then $\vert\mathcal{H}_{C}\vert = 2^{\vert C\vert}$. When the intersection $\vert\mathcal{H} \cup C\vert$ is defined like in equation \eqref{eq1}, that is:
 
 $$
 \mathcal{H}\cup C := \lbrace h\cup C: h\in\mathcal{H}\rbrace
