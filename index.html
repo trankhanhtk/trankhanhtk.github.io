@@ -7,11 +7,24 @@ permalink: /
 
 <div class="mt-5">
   {% for post in site.posts %}
-    <article class="mb-3">
-      <h3 class="h4"><a href="{{ post.url }}" title="{{ post.title }}" class="link-dark">{{ post.title }}</a></h3>
+    <article class="mb-4">
+      <header>
+        <h3 class="h4"><a href="{{ post.url }}" title="{{ post.title }}" class="link-dark">{{ post.title }}</a></h3>
+      </header>
       {% if post.excerpt %}
-        <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2 text-dark mt-2 text-dark link-underline link-underline-opacity-0">{{ post.excerpt }}</a>
+        <section>
+          <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2 text-dark mt-2 text-dark link-underline link-underline-opacity-0">{{ post.excerpt }}</a>
+        </section>
       {% endif %}
+      <footer>
+        Created at
+        {% if post.date %}
+          {{post.date}}  
+        {% else %}
+          N/A
+        {% endif %}
+        
+      </footer>
     </article>
   {% endfor %}
 </div>
