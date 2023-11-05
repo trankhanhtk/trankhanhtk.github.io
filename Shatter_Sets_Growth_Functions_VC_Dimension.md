@@ -23,7 +23,7 @@ $$
 Define the intersection of the class $\mathcal{F}$ and the set $S$ to be:
 
 $$
-\mathcal{F}\cap S := \{ s \cap \mathcal{F}: s \in S \}\tag1\label{eq1}
+\mathcal{F}\cap S := \{ s \cap \mathcal{F}: s \in S \}\tag1
 $$
 
 We can say that $\mathcal{F}$ shatters $S$ if their intersection equals the power set of $S$:
@@ -37,9 +37,7 @@ $$
 Let $\mathcal{H}$ be a hypothesis class of binary classifiers from the domain set $\mathcal{X}$ to $\{0, 1\}$. Let $C=\lbrace c_{1}, c_{2},..., c_{m}\rbrace$ be a subset
 $\mathcal{X}$ and denote by $\mathcal{H}_{C}$ the restriction of $\mathcal{H}$ to $C$, that is:
 
-$$
-\mathcal{H}_{C} = \lbrace \langle h(c_{1}), h(c_{2}),...,h(c_{m}) \rangle : h \in \mathcal{H} \rbrace .
-$$
+$$\mathcal{H}_{C} = \lbrace \langle h( c_{1} ), h( c_{2} ),..., h( c_{m} ) \rangle : h \in \mathcal{H} \rbrace .$$
 
 We say that $\mathcal{H}$ shatters $C$ if $\mathcal{H}_{C}$ is the set of all functions from $C$ to $\lbrace 0, 1\rbrace$. Clearly, if $\mathcal{H}$ shatters $C$ then $\left|\mathcal{H}_{C}\right|=2^{\left|C\right|}$. When the intersection $|\mathcal{H}\cup C|$ is defined like in equation $\eqref{eq1}$, that is:
 
