@@ -23,7 +23,7 @@ $$
 Define the intersection of the class $\mathcal{F}$ and the set $S$ to be:
 
 $$
-\mathcal{F}\cap S := \{ s \cap \mathcal{F}: s \in S \}\tag1
+\mathcal{F}\cap S := \{ s \cap \mathcal{F}: s \in S \}\tag1\label{eq1}
 $$
 
 We can say that $\mathcal{F}$ shatters $S$ if their intersection equals the power set of $S$:
