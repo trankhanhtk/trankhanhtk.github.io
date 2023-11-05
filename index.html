@@ -7,9 +7,9 @@ permalink: /
 
 {% for post in site.posts %}
   <div class="pt-3">
-    <h4><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
+    <h4><a href="{{ post.url }}" title="{{ post.title }}" class="link-dark">{{ post.title }}</a></h4>
     {% if post.excerpt %}
-      <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2">{{ post.excerpt }}</a>
+      <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2 text-dark mt-2 text-dark link-underline link-underline-opacity-0">{{ post.excerpt }}</a>
     {% endif %}
   </div>
 {% endfor %}
