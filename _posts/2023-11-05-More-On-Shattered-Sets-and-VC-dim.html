@@ -1,0 +1,40 @@
+---
+layout: post
+title: "More on the Definition of a Set That Is Shattered by a Class of Sets"
+excerpt: "This post reviews the definition a set that is shattered by a class of sets and discusses several different ways to look at the definition."
+permalink: /more-on-the-definition-of-a-shattered-set
+---
+<p>This post reviews the definition a set that is shattered by a class of sets and discusses several different ways to look at the definition. Let's take the following def. of a shattered set from Wikipedia:</p>
+
+<blockquote>
+Suppose $A$ is a set and $\mathcal{C}$ is class of sets. $A$ is shattered by $\mathcal{C}$ if any subset of $A$ is equal to the intersection of some element of $\mathcal{C}$ and $A$. That is:
+<p>
+$$
+A\text{ is shattered by }\mathcal{C}\leftrightarrow(\forall a\in\mathcal{P}(A))(\exists c\in \mathcal{C})(a=c\cap A),
+$$
+where $\mathcal{P}$ denotes the power set of $A$.
+</p>
+</blockquote>
+
+<p>
+From the definition, it's easy to sea that if $A$ is shattered by $\mathcal{C}$ then:
+</p>
+<p>
+$\forall a\in\mathcal{P}(A)\rightarrow (\exists c\in\mathcal{C})(a\subseteq c)$
+</p>
+
+<p>
+However, the definition requires more than just $(\exists c\in\mathcal{C})(a\subseteq c)$ but rather $(\exists c\in \mathcal{C})(a=c\cap A)$. That is, not only $c$ contains all elements in $a$ but it may have extra elements not in $a$, however, those extra elements can't be in $A$. And this is a very important thing to remember.
+</p>
+
+<p>
+If we define the class $\mathcal{C}$ <em>restricted to</em> $A$, denoted by $\mathcal{C}_{A}$, is the class that contains all set $c\cap A$ for all $c\in\mathcal{C}$. That is: $\mathcal{C}_{A}=\{c\cap A: \forall c\in\mathcal{C}\}$, then another way to phrase $A$ is shattered by $\mathcal{C}$ is as follows:
+</p>
+
+<p>
+$\forall a\in \mathcal{P}(A)\rightarrow(\exists c_{A} \in \mathcal{C}_{A})(a=c_{A})$.
+</p>
+
+<p>
+From the definition of $\mathcal{C}_{A}$, we have that if $c_{A}\in\mathcal{C}_{A}$ then $c_{A}$ is a subset of $A$. So a third way to say that $\mathcal{C}$ shatters $A$ is if $\mathcal{C}_{A}=\mathcal{P}(A)$.
+</p>
