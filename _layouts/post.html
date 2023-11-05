@@ -3,7 +3,12 @@
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 <div class="container my-5 pt-5">
-    {{ content }}
+    <article>
+        <h1>{{post.title}}</h1>
+        <section class="mt-2">
+        {{ content }}
+        </section>
+    </article>
 </div>
 
     <script type="text/x-mathjax-config">
