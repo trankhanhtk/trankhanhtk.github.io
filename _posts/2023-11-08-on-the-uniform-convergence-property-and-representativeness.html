@@ -51,21 +51,22 @@ L_\mathcal{D}(h_S) - L_\mathcal{D}(h^\star)
 $$
 
 <p>
-The above lemma clearly implies that if the probability of an $\frac{\epsilon}{2}$-representative sample (with size not less than the value of some function of $\epsilon$ and $\delta$) is at least $1 - \delta$, then the hypothesis class is guaranteed to be agnostic PAC learnable with the ERM's rule is a successful learner. Or in symbols:
+The above lemma clearly implies that if the probability of an $\frac{\epsilon}{2}$-representative sample
+(with size not less than the value of some function of $\epsilon$ and $\delta$) is at least $1 - \delta$, then the hypothesis class is guaranteed to be agnostic PAC learnable with the ERM's rule is a successful learner. Or in symbols:
 </p>
 
 $$
-\mathcal{P}[\lbrace S: |S| \gt m_{H}(\epsilon, \delta) \wedge S\text{ is }\frac{\epsilon}{2}\text{-representitive}\rbrace] \ge 1-\delta\rightarrow\text{ERM's rule is a successful agnostic PAC learner}.
+\mathcal{P}[\lbrace S: |S| \gt m_{H}^{UC}(\epsilon, \delta) \wedge S\text{ is }\frac{\epsilon}{2}\text{-representitive}\rbrace] \ge 1-\delta\rightarrow\text{ERM's rule is a successful agnostic PAC learner}.
 $$
 
 <p>
 The reason is because the probability of a training sample to be $\frac{\epsilon}{2}$-representative not less than $1 - \delta$ means that for any traning sample $S$, we always have that 
 
 $$
-\mathbb{P}\lbrace h\in\mathcal{H}: L_\mathcal{D}(h_S) \le \min_{h_{S}\in\mathcal{H}}L_\mathcal{D}(h) + \epsilon\rbrace \ge \epsilon,
+\mathbb{P}\lbrace h_{S}\in\mathcal{H}: L_\mathcal{D}(h_S) \le \min_{h_{S}\in\mathcal{H}}L_\mathcal{D}(h) + \epsilon\rbrace \ge 1- \delta,
 $$
 
-regardless of the training size.
+for all training $S$ with $|S|\ge m_\mathcal{H}^{UC}(\epsilon, \delta)$.
 </p>
 
 <p>The above observation motivates the definition of uniform convergence property.</p>
@@ -76,9 +77,9 @@ regardless of the training size.
 <strong>Definition of uniform convergence</strong>.
 We say that a hypothesis class $\mathcal{H}$ has the uniform convergence property
 (w.r.t domain $Z$, hypothesis class $\mathcal{H}$, loss function $\mathcal{l}$, and distribution $\mathcal{D}$)
-if there exists a function $m_\mathcal{H}(\epsilon, \delta) : (0,1)^2\to\mathbb{N}$ such that for every $\epsilon
+if there exists a function $m_\mathcal{H}^{UC}(\epsilon, \delta) : (0,1)^2\to\mathbb{N}$ such that for every $\epsilon
 , \delta \in(0,1)$ and for every probability distribution $\mathcal{D}$ over $Z$
-, if $S$ is a sample of $m \ge m_\mathcal{H}(\epsilon, \delta)$ examples drawn i.i.d. according to $\mathcal{D}$
+, if $S$ is a sample of $m \ge m_\mathcal{H}^{UC}(\epsilon, \delta)$ examples drawn i.i.d. according to $\mathcal{D}$
 , then, with probability of at least 1 − $\delta$, $S$ is $\epsilon$-representative.
 </p>
 
