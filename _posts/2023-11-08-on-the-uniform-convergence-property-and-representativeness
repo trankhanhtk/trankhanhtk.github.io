@@ -74,7 +74,11 @@ regardless of the training size.
 
 <p>
 <strong>Definition of uniform convergence</strong>.
-We say that a hypothesis class $\mathcal{H}$ has the uniform convergence property (w.r.t domain $Z$, hypothesis class $\mathcal{H}$, loss function $\mathcal{l}$, and distribution $\mathcal{D}$) if there exists a function $m_\mathcal{H}(\epsilon, \delta) : (0,1)^2\to\mathbb{N}$ such that for every $\epsilon, \delta \in(0,1)$ and for every probability distribution $\mathcal{D}$ over $Z$, if $S$ is a sample of $m \ge m_\mathcal{H}(\epsilon, \delta)$ examples drawn i.i.d. according to $\mathcal{D}$, then, with probability of at least 1 − $\delta$, $S$ is $\epsilon$-representative.
+We say that a hypothesis class $\mathcal{H}$ has the uniform convergence property
+(w.r.t domain $Z$, hypothesis class $\mathcal{H}$, loss function $\mathcal{l}$, and distribution $\mathcal{D}$)
+if there exists a function $m_\mathcal{H}(\epsilon, \delta) : (0,1)^2\to\mathbb{N}$ such that for every $\epsilon
+, \delta \in(0,1)$ and for every probability distribution $\mathcal{D}$ over $Z$
+, if $S$ is a sample of $m \ge m_\mathcal{H}(\epsilon, \delta)$ examples drawn i.i.d. according to $\mathcal{D}$
+, then, with probability of at least 1 − $\delta$, $S$ is $\epsilon$-representative.
 </p>
-
 
