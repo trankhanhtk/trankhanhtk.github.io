@@ -10,7 +10,7 @@ The following is my proof of the following claim found in the book
 "Ben-David, S. et al. (2014), <em>Understanding Machine Learning</em>, Cambridge University Press" in the construction of Sauer's lemma:
 </p>
 
-<h3>Claim</h3>
+<h2>Claim</h2>
 
 <p>
 For any set $C = \lbrace c_{1},...,c_{m} \rbrace$, let $\mathcal{H}$ be some class of binary functions
@@ -24,8 +24,6 @@ $$|\mathcal{H}_C|\le |\lbrace B\subseteq C: \mathcal{H}\text{ shatters }B\rbrace
 This is a very strong claim since it leads directly to the proof of the Sauer's lemma.
 </p>
 
-<h3>Proof of the Claim</h3>
-
 <p>To prove the claim, we will prove the following useful proposition:</p>
 
 <h4>Proposition</h4>
@@ -37,8 +35,7 @@ shatter at least $k-1$ sets that are chosen from $k$ shattered sets of $\mathcal
 , that is chosen from $\lbrace A_1, A_2,..., A_k\rbrace$.
 </p>
 
-<h4>Proof of the Proposition</h4>
-<p>
+<p><em>Proof.</em>
 For $i\in[1, k]$, denote the power set of $A_i$ by $\mathcal{P}(A_i)$, from the definition of a shattered set we have that:
 
 $$
@@ -81,9 +78,9 @@ But this implies that we can choose $c^*=A_1\cap A_2$ such that $a''=c^*\cap A_2
 and also $c^* \ne (c=A_1)$ since $A_1\ne A_2$ (a contradiction of the assumption). Which concludes the proof of the proposition.
 </p>
 
-
+<h2>Proof of the Claim</h2>
 <p>
-Back to the proof of the claim.
+We now apply the proposition into the proof of the claim.
 Let $\mathcal{F}$ be the class of all functions from $C\to \lbrace 0, 1\rbrace$.
 We can see that $\mathcal{F}$ shatters all the sets that are subsets of $C$.
 Equivalently:
