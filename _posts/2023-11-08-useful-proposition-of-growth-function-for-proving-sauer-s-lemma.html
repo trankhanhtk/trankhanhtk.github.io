@@ -9,7 +9,7 @@ date: 2023-11-08 10:00:01 +07:00
 The following is my proof of the following claim, found in the book "Ben-David, S. et al. (2014), <em>Understanding Machine Learning</em>, Cambridge University Press" in the construction of Sauer's lemma:
 </p>
 
-<h4>Claim</h4>
+<h3>Claim</h3>
 
 <p>
 For any set $C = \lbrace c_{1},...,c_{m} \rbrace$, let $\mathcal{H}$ be some set of binary functions from some superset $\mathcal{X}$ of $C$ to $\lbrace 0, 1\rbrace$ and denote by $\mathcal{H}_C$ the restriction of $\mathcal{H}$ to $C$, then we have:
@@ -17,7 +17,7 @@ For any set $C = \lbrace c_{1},...,c_{m} \rbrace$, let $\mathcal{H}$ be some set
 $$|\mathcal{H}_C|\le |\lbrace B\subseteq C: \mathcal{H}\text{ shatters }B\rbrace |.$$
 </p>
 
-<h4>Proof of the Claim</h4>
+<h3>Proof of the Claim</h3>
 
 <p>To prove the claim, we will prove the following proposition:</p>
 
@@ -51,7 +51,7 @@ We now show that in this case, there exists some $(c'\in\mathcal{C})\ne c$ such 
 </p>
 
 <p>
-Assume to the contrary that there does not exist any such element $c'$. Since $\mathcal{C}$ shatters both $A_1$ and $A_2$, we have that $\mathcal{P}(A_l) = \mathcal{C}|_{A_l}$ for $l\in[1, 2]$. This shows that $c\in \lbrace A_1, A_2\rbrace$, because otherwise we can simple choose some $c' \in \mathcal{C}$ such that $a_1\subseteq c'$ and $(c'\backslash a_1)\cap A_1 = \varnothing$ and so $a_1 = c'\cap A_1$ (contrary to our assumption). However, if $c\in \lbrace A_1, A_2\rbrace$, for example if $c=A_1$, then clearly $a_2=c\cap A_2 = A_1\cap A_2 = (A_1\cap A_2)\cap A_2$. But this implies that we can replace $c$ by $(A_1\cap A_2)\ne A_1$ since $A_1\ne A_2$ (a contradiction with the assumption that $c$ can't be replaced by other element in $\mathcal{C}$). Which concludes the proof of the proposition.
+Assume to the contrary that there does not exist any such element $c'$. Since $\mathcal{C}$ shatters both $A_1$ and $A_2$, we have that $\mathcal{P}(A_l) = \mathcal{C}|_{A_l}$ for $l\in[1, 2]$. This shows that $c\in \lbrace A_1, A_2\rbrace$, because otherwise we can simple choose some $c' \in \mathcal{C}$ such that $a_1\subseteq c'$ and $(c'\backslash a_1)\cap A_1 = \varnothing$ and so $a_1 = c'\cap A_1$ (contrary to our assumption). However, if $c\in \lbrace A_1, A_2\rbrace$, for example if $c=A_1$, then clearly $a_2=c\cap A_2 = A_1\cap A_2 = (A_1\cap A_2)\cap A_2$. But this implies that we can replace $c$ by $(A_1\cap A_2)\ne A_1$ since $A_1\ne A_2$ (a contradiction of the assumption that $c$ can't be replaced by other element in $\mathcal{C}$). Which concludes the proof of the proposition.
 </p>
 
 
