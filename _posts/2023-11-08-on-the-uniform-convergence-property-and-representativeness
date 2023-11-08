@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "On the Definition of Uniform Convergence Property and Representativeness"
-excerpt: "This post reviews the definition of uniform convergence property of a hypothesis class and the idea of the representativeness of a training sample covered in the book \"Understanding Machine Learning\" written by Ben David S. et al."
+excerpt: "This post reviews the definition of uniform convergence property of a hypothesis class and the idea of the representativeness of a training sample covered in the book Understanding Machine Learning written by Ben David S. et al."
 permalink: /on-the-definition-of-uniform-convergence-property-and-representativeness
 date: 2023-11-08 15:00:01 +07:00
 ---
