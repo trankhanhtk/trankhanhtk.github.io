@@ -6,13 +6,16 @@ permalink: /shatter-sets-growth-functions-VC-dimension
 date: 2023-11-08 10:00:01 +07:00
 ---
 <p>
-The following is my proof of the following claim, found in the book "Ben-David, S. et al. (2014), <em>Understanding Machine Learning</em>, Cambridge University Press" in the construction of Sauer's lemma:
+The following is my proof of the following claim found in the book
+"Ben-David, S. et al. (2014), <em>Understanding Machine Learning</em>, Cambridge University Press" in the construction of Sauer's lemma:
 </p>
 
 <h3>Claim</h3>
 
 <p>
-For any set $C = \lbrace c_{1},...,c_{m} \rbrace$, let $\mathcal{H}$ be some class of binary functions from some superset $\mathcal{X}$ of $C$ to $\lbrace 0, 1\rbrace$ and denote by $\mathcal{H}_C$ the restriction of $\mathcal{H}$ to $C$, then we have:
+For any set $C = \lbrace c_{1},...,c_{m} \rbrace$, let $\mathcal{H}$ be some class of binary functions
+from some superset $\mathcal{X}$ of $C$ to $\lbrace 0, 1\rbrace$
+and denote by $\mathcal{H}_C$ the restriction of $\mathcal{H}$ to $C$, then we have:
 
 $$|\mathcal{H}_C|\le |\lbrace B\subseteq C: \mathcal{H}\text{ shatters }B\rbrace |.$$
 </p>
@@ -28,7 +31,10 @@ This is a very strong claim since it leads directly to the proof of the Sauer's 
 <h4>Proposition</h4>
 
 <p>
-Suppose $\mathcal{C}$ is a class of sets that shatters $k$ distinct non-empty sets $A_1, A_2,..., A_k$, where $k$ is a non-negative integer, then $\forall c\in\mathcal{C}$, $\mathcal{C}\backslash c$ will shatter at least $k-1$ sets that are chosen from $k$ shattered sets of $\mathcal{C}$, that is chosen from $\lbrace A_1, A_2,..., A_k\rbrace$.
+Suppose $\mathcal{C}$ is a class of sets that shatters $k$ distinct non-empty sets $A_1, A_2,..., A_k$
+, where $k$ is a non-negative integer, then $\forall c\in\mathcal{C}$, $\mathcal{C}\backslash c$ will
+shatter at least $k-1$ sets that are chosen from $k$ shattered sets of $\mathcal{C}$
+, that is chosen from $\lbrace A_1, A_2,..., A_k\rbrace$.
 </p>
 
 <h4>Proof of the Proposition</h4>
@@ -43,11 +49,16 @@ $$
 </p>
 
 <p>
-If there's only one single shattered set amongst all shattered sets of $\mathcal{C}$, $A_s$ for some positive integer $s\le k$, such that $\exists a\in\mathcal{P}(A_s): a=c\cap\mathcal{P}(A_s)$, then it's easy to show that the proposition is true since $\mathcal{C}\backslash c$ still shatters all $\mathcal{C}$'s shattered sets except possibly $A_s$.
+If there's only one single shattered set amongst all shattered sets of $\mathcal{C}$, $A_s$ for some positive integer $s\le k$
+, such that $\exists a\in\mathcal{P}(A_s): a=c\cap\mathcal{P}(A_s)$
+, then it's easy to show that the proposition is true since $\mathcal{C}\backslash c$ still shatters all $\mathcal{C}$'s shattered sets
+except possibly $A_s$.
 </p>
 
 <p>
-Now suppose that there're at least two different shattered sets of $\mathcal{C}$, $A_p$ and $A_q$ such that $(\exists a'\in\mathcal{P}(A_p)) = c\cap A_p$ and $(\exists a''\in\mathcal{P}(A_q)) = c\cap A_q$. Without the loss of generality suppose that, $A_1 = A_p$ and $A_2=A_q$, that is:
+Now suppose that there're at least two different shattered sets of $\mathcal{C}$
+, $A_p$ and $A_q$ such that $(\exists a'\in\mathcal{P}(A_p)) = c\cap A_p$ and $(\exists a''\in\mathcal{P}(A_q)) = c\cap A_q$.
+Without the loss of generality suppose that, $A_1 = A_p$ and $A_2=A_q$, that is:
   
 $$
 (\exists a'\in\mathcal{P}(A_1))=c\cap A_1 \wedge (\exists a''\in\mathcal{P}(A_2))=c\cap A_2.
@@ -55,26 +66,42 @@ $$
 </p>
 
 <p>
-We now show that in this case, there exists some $(c^*\in\mathcal{C})\ne c$ such that $a'=c^*\cap A_1$ or $a''=c^*\cap A_2$. And if this is true, then the list of shattered sets of $\mathcal{C}\backslash c$ will at most 1 set behind the list of all shattered sets of $\mathcal{C}$.
+We now show that in this case, there exists some $(c^*\in\mathcal{C})\ne c$ such that $a'=c^*\cap A_1$ or $a''=c^*\cap A_2$.
+If this is true, then the list of shattered sets of $\mathcal{C}\backslash c$ will
+at most 1 set behind the list of all shattered sets of $\mathcal{C}$.
 </p>
 
 <p>
-Assume to the contrary that there does not exist any such element $c^*$. Since $\mathcal{C}$ shatters both $A_1$ and $A_2$, we have that $\mathcal{P}(A_l) = \mathcal{C}|_{A_l}$ for $l\in\lbrace 1, 2\rbrace$. This shows that $c\in \lbrace A_1, A_2\rbrace$, because otherwise we can simple choose some $c^* \in \mathcal{C}$ such that $a'\subseteq c^*$ and $(c^*\backslash a')\cap A_1 = \varnothing$ and so $a' = c^*\cap A_1$ (contrary to our assumption). However, if $c\in \lbrace A_1, A_2\rbrace$, for example if $c=A_1$, then clearly $a''=c\cap A_2 = A_1\cap A_2 = (A_1\cap A_2)\cap A_2$. But this implies that we can choose $(c^*=A_1\cap A_2)$ such that $a''=c^*\cap A_2$ and also $c^* \ne (c=A_1)$ since $A_1\ne A_2$ (a contradiction of the assumption that $c$ can't be replaced by other element in $\mathcal{C}$). Which concludes the proof of the proposition.
+Assume to the contrary that there does not exist any such element $c^*$.
+Since $\mathcal{C}$ shatters both $A_1$ and $A_2$, we have that $\mathcal{P}(A_l) = \mathcal{C}|_{A_l}$ for $l\in\lbrace 1, 2\rbrace$.
+This shows that $c\in \lbrace A_1, A_2\rbrace$, because otherwise we can simple choose some $c^* \in \mathcal{C}$
+such that $a'\subseteq c^*$ and $(c^*\backslash a')\cap A_1 = \varnothing$ and so $a' = c^*\cap A_1$ (contrary to our assumption).
+However, if $c\in \lbrace A_1, A_2\rbrace$, for example if $c=A_1$, then clearly $a''=c\cap A_2 = A_1\cap A_2 = (A_1\cap A_2)\cap A_2$.
+But this implies that we can choose $c^*=A_1\cap A_2$ such that $a''=c^*\cap A_2$
+and also $c^* \ne (c=A_1)$ since $A_1\ne A_2$ (a contradiction of the assumption). Which concludes the proof of the proposition.
 </p>
 
 
 <p>
-Back to the proof of the claim. Let $\mathcal{F}$ be the class of all functions from $C\to \lbrace 0, 1\rbrace$. We can see that $\mathcal{F}$ shatters all the sets that are subsets of $C$. Equivalently:
+Back to the proof of the claim.
+Let $\mathcal{F}$ be the class of all functions from $C\to \lbrace 0, 1\rbrace$.
+We can see that $\mathcal{F}$ shatters all the sets that are subsets of $C$.
+Equivalently:
 
 $$\mathcal{F}=\mathcal{P}(C).$$
 </p>
 
 <p>
-Moreover, $\mathcal{P}(C)$ consists of all subsets of $C$ that are shattered by $\mathcal{F}$. Therefore, $|\mathcal{F}|=2^{m}=|\mathcal{P}(C)|$ satisfies the inequality in the claim.
+Moreover, $\mathcal{P}(C)$ consists of all subsets of $C$ that are shattered by $\mathcal{F}$.
+Therefore, $|\mathcal{F}|=2^{m}=|\mathcal{P}(C)|$ satisfies the inequality in the claim.
 </p>
 
 <p>
-Clearly, we can obtain the class $\mathcal{H}_C$ from $\mathcal{F}$ by removing each element in $\mathcal{F} \backslash \mathcal{H}_C$ one at a time. After each removal, we obtain a new class which shatters all shattered sets of the previous class except probably 1 set removed. This implies that regardless of how many elements $\mathcal{F}\backslash \mathcal{H}_C$ contains, after the last removal we always have: $|\mathcal{H}_C|\le |\lbrace B\subseteq C: \mathcal{H}\text{ shatters }B\rbrace |.
+Clearly, we can obtain the class $\mathcal{H}_C$ from $\mathcal{F}$ by removing
+each element in $\mathcal{F} \backslash \mathcal{H}_C$ one at a time.
+After each removal, we obtain a new class which shatters all shattered sets of the previous class except probably 1 set removed.
+This implies that regardless of how many elements $\mathcal{F}\backslash \mathcal{H}_C$ contains
+, after the last removal we always have: $|\mathcal{H}_C|\le |\lbrace B\subseteq C: \mathcal{H}\text{ shatters }B\rbrace |.
 \square$
 </p>
 
