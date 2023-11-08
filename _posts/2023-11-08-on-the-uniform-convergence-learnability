@@ -1,0 +1,80 @@
+---
+layout: post
+title: "On the Definition of Uniform Convergence Property and Representativeness"
+excerpt: "This post reviews the definition of uniform convergence property of a hypothesis class and the idea of the representativeness of a training sample covered in the book \"Understanding Machine Learning\" written by Ben David S. et al."
+permalink: /on-the-definition-of-uniform-convergence-property-and-representativeness
+date: 2023-11-08 15:00:01 +07:00
+---
+
+<p>
+This post reviews the definition of uniform convergence (UC) property of a hypothesis class which is covered in the book
+"Ben David S. et at. (2014), <em>Understanding Machine Learning</em>, Cambridge University Press".
+It also visits the idea of the representativeness of a training sample and its property related to UC, also mentioned in the book.
+</p>
+
+<h2>Representativeness of a Training Sample</h2>
+<p>
+<strong>Definition of $\epsilon$-representative sample</strong>
+A training set S is called $\epsilon$-representative (w.r.t. domain $Z$, hypothesis class $\mathcal{H}$
+, loss function $\mathcal{l}$, and distribution $\mathcal{D}$) if:
+$$
+\forall h\in \mathcal{H},\ |L_S(h_S)-L_D(h_S)|\lt \epsilon.
+$$
+</p>
+
+<p>
+Based on this definition, one can easily show that the following lemma is true:
+</p>
+
+<h3>Lemma</h3>
+<p>
+Assume that a training set S is $\epsilon/2$-representative (w.r.t. domain $Z$, hypothesis class $\mathcal{H}$
+, loss function $\mathcal{l}$, and distribution $\mathcal{D}$).
+Then, any output of $ERM_\mathcal{H}(S)$, namely, any $h_S \in \underset{h\in H}{argmin} L_S(h)$, satisfies
+</p>
+
+$$
+L_\mathcal{D}(h_S) \le \min_{h\in\mathcal{H}}L_\mathcal{D}(h) + \epsilon
+$$
+
+<h4>Proof of the Lemma</h4>
+<p>Let $h^\star = \underset{{h\in\mathcal{H}}}{argmin}L_D(h)$, then</p>
+
+$$
+\begin{align}
+L_\mathcal{D}(h_S) - \min_{h\in\mathcal{H}}L_\mathcal{D}(h) &=
+L_\mathcal{D}(h_S) - L_\mathcal{D}(h^\star)
+\\ &= (L_\mathcal{D}(h_S) - L_\mathcal{S}(h^\star)) + (L_\mathcal{S}(h^\star) - L_\mathcal{D}(h^\star))
+\\ &\le (L_\mathcal{D}(h_S) - L_\mathcal{S}(h_S))+ \epsilon/2
+\\ &\le \epsilon/2 + \epsilon/2 = \epsilon.\square
+\end{align}
+$$
+
+<p>
+The above lemma clearly implies that if the probability of an $\frac{\epsilon}{2}$-representative sample (with size not less than the value of some function of $\epsilon$ and $\delta$) is at least $1 - \delta$, then the hypothesis class is guaranteed to be agnostic PAC learnable with the ERM's rule is a successful learner. Or in symbols:
+</p>
+
+$$
+\mathcal{P}[\lbrace S: |S| \gt m_{H}(\epsilon, \delta) \wedge S\text{ is }\frac{\epsilon}{2}\text{-representitive}\rbrace] \ge 1-\delta\rightarrow\text{ERM's rule is a successful agnostic PAC learner}.
+$$
+
+<p>
+The reason is because the probability of a training sample to be $\frac{\epsilon}{2}$-representative not less than $1 - \delta$ means that for any traning sample $S$, we always have that 
+
+$$
+\mathbb{P}\lbrace h\in\mathcal{H}: L_\mathcal{D}(h_S) \le \min_{h_{S}\in\mathcal{H}}L_\mathcal{D}(h) + \epsilon\rbrace \ge \epsilon,
+$$
+
+regardless of the training size.
+</p>
+
+<p>The above observation motivates the definition of uniform convergence property.</p>
+
+<h2>Uniform Convergence</h2>
+
+<p>
+<strong>Definition of uniform convergence</strong>.
+We say that a hypothesis class $\mathcal{H}$ has the uniform convergence property (w.r.t domain $Z$, hypothesis class $\mathcal{H}$, loss function $\mathcal{l}$, and distribution $\mathcal{D}$) if there exists a function $m_\mathcal{H}(\epsilon, \delta) : (0,1)^2\to\mathbb{N}$ such that for every $\epsilon, \delta \in(0,1)$ and for every probability distribution $\mathcal{D}$ over $Z$, if $S$ is a sample of $m \ge m_\mathcal{H}(\epsilon, \delta)$ examples drawn i.i.d. according to $\mathcal{D}$, then, with probability of at least 1 − $\delta$, $S$ is $\epsilon$-representative.
+</p>
+
+
