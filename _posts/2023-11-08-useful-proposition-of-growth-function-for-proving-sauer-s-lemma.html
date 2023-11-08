@@ -5,21 +5,30 @@ excerpt: "This post shows another proof of a claim that the cardinality of a cla
 permalink: /shatter-sets-growth-functions-VC-dimension
 date: 2023-11-08 10:00:01 +07:00
 ---
+<p>
 The following is my proof of the following claim, found in the book "Ben-David, S. et al. (2014), <em>Understanding Machine Learning</em>, Cambridge University Press" in the construction of Sauer's lemma:
+</p>
 
-**Claim:**
+<h4>Claim</h4>
+
+<p>
 For any set $C = \lbrace c_{1},...,c_{m} \rbrace$, let $\mathcal{H}$ be some set of binary functions from some superset $\mathcal{X}$ of $C$ to $\lbrace 0, 1\rbrace$ and denote by $\mathcal{H}_C$ the restriction of $\mathcal{H}$ to $C$, then we have:
 
 $$|\mathcal{H}_C|\le |\lbrace B\subseteq C: \mathcal{H}\text{ shatters }B\rbrace |.$$
+</p>
 
-**Proof**:
+<h4>Proof of the Claim</h4>
 
-To prove the claim, we will prove the following proposition:
+<p>To prove the claim, we will prove the following proposition:</p>
 
-**Proposition:**
+<h4>Proposition</h4>
+
+<p>
 Suppose the class of sets $\mathcal{C}$ that shatters $k$ distinct non-empty sets $A_1, A_2,..., A_k$, where $k$ is a non-negative integer, then $\forall c\in\mathcal{C}$, $\mathcal{C}\backslash c$ will shatters at least $k-1$ sets that are chosen from $k$ shattered sets of $\mathcal{C}$, that is chosen from $\lbrace A_1, A_2,..., A_k\rbrace$.
+</p>
 
-**Proof of the proposition:**
+<h4>Proof of the Proposition</h4>
+<p>
 For $i\in[1, k]$, denote the power set of $A_i$ by $\mathcal{P}(A_i)$, from the definition of a shattered set we have that:
 
 $$
@@ -27,21 +36,37 @@ $$
 &\forall a\in \mathcal{P}(A_i)\rightarrow\exists c\in \mathcal{C}: a=c\cap A_i
 \end{align}
 $$
+</p>
 
+<p>
 If there's only one shattered set amongst all shattered sets of $\mathcal{C}$, $A_i$ for some positive integer $i\le k$, such that $\exists a\in\mathcal{P}(A_i): a=c\cap\mathcal{P}(A_i)$, then it's easy to show that the proposition is true since $\mathcal{C}\backslash c$ still shatters all $\mathcal{C}$'s other shatter sets $A_j$ for $j\ne i$.
+</p>
 
+<p>
 Now suppose that there're at least two different shattered sets of $\mathcal{C}$, $A_p$ and $A_q$ such that $(a_l\in\mathcal{P}(A_l)) = c\cap A_l$ for $l\in\lbrace p, q\rbrace$. Without the loss of generality suppose that: $a_1=c\cap A_1, a_2=c\cap A_2$ where $a_1\in\mathcal{P}(A_1)$ and $a_2\in\mathcal{P}(A_2)$.
+</p>
 
+<p>
 We now show that in this case, there exists some $(c'\in\mathcal{C})\ne c$ such that $a_1=c'\cap A_1$ or $a_2=c'\cap A_2$. And if this is true, then the shattered sets of $\mathcal{C}\backslash c$ will at most 1 element behind the shattered sets of $\mathcal{C}$.
+</p>
 
+<p>
 Assume to the contrary that there does not exist any such element $c'$. Since $\mathcal{C}$ shatters both $A_1$ and $A_2$, we have that $\mathcal{P}(A_l) = \mathcal{C}|_{A_l}$ for $l\in[1, 2]$. This shows that $c\in \lbrace A_1, A_2\rbrace$, because otherwise we can simple choose some $c' \in \mathcal{C}$ such that $a_1\subseteq c'$ and $(c'\backslash a_1)\cap A_1 = \varnothing$ and so $a_1 = c'\cap A_1$ (contrary to our assumption). However, if $c\in \lbrace A_1, A_2\rbrace$, for example if $c=A_1$, then clearly $a_2=c\cap A_2 = A_1\cap A_2 = (A_1\cap A_2)\cap A_2$. But this implies that we can replace $c$ by $(A_1\cap A_2)\ne A_1$ since $A_1\ne A_2$ (a contradiction with the assumption that $c$ can't be replaced by other element in $\mathcal{C}$). Which concludes the proof of the proposition.
+</p>
 
+
+<p>
 Back to the proof of the claim. Let $\mathcal{F}$ be the set of all functions from $C\to \lbrace 0, 1\rbrace$. We can see that $\mathcal{F}$ shatters all the sets that are subsets of $C$. Equivalently:
 
 $$\mathcal{F}=\mathcal{P}(C).$$
+</p>
 
+<p>
 Moreover, $\mathcal{P}(C)$ consists of all subsets of $C$ that are shattered by $\mathcal{F}$. Therefore, $|\mathcal{F}|=2^{m}=|\mathcal{P}(C)|$ satisfies the inequality in the claim.
+</p>
 
+<p>
 Clearly, we can obtain $\mathcal{H}_C$ from $\mathcal{F}$ by removing each element in $\mathcal{F} \backslash \mathcal{H}_C$ at a time. After each removal, we obtain a new set whose shattered sets contains all elements of the previous set's shattered sets except, probably 1 set removed. This implies that regardless of how many elements $\mathcal{F}\backslash \mathcal{H}_C$ contains, after every removal we always have: $|\mathcal{H}_C|\le |\lbrace B\subseteq C: \mathcal{H}\text{ shatters }B\rbrace |.
 \square$
+</p>
 
