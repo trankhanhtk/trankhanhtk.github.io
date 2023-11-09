@@ -1,0 +1,132 @@
+---
+layout: post
+title: "Unpacking the Definition of the Sample Complexity Function and some of its properties"
+excerpt: "This post will take a closer look at the definition of sample complexity function for a give hypothesis class and some of its properties"
+permalink: /2023-11-09-unpacking-the-definition-of-sample-complexity-function-for-a-hypothesis-class-and-its-properties
+date: 2023-11-09 16:26:47 +07:00
+---
+<p>
+This post will take a closer look at the definition of sample complexity function for a give hypothesis class and some of its properties.
+</p>
+
+<p>
+The sample complexity function of a given hypothesis class $\mathcal{H}$ is a function of two parameters $\epsilon$ and $delta$ that returns
+an upper bound for training set size for an algorithm to meet some specific conditions. First, let's go through a quick review of the two
+parameters $\epsilon$ and $delta$:
+</p>
+
+<ul>
+<li>
+  $\epsilon$ is the <em>accuracy parameter</em> which measures the <em>quality of predictions</em> made by a learner
+  by providing an upper bound for a hypothesis to be considered as a successful learner.
+  Specifically, a learner $h_S$ outputted by some algorithm $A$ with $S$ as tranining input, is considered to be a successful learner if it satisfies the inequality $L_\mathcal{D}(h_S)\le \epsilon$.
+</li>
+<li>
+  $\delta$ provides a measure for the <em>confidence</em> of the output of an algorithm. Specifically, $\delta$ measures the probability of a training set
+  sampled i.i.d according to some distribution $\mathcal{D}$ is nonrepresentitive.
+  That is, given some distribution $\mathcal{D}$ over the domain set $Z=\mathcal{X}\times \mathcal{Y}$
+  , the training set size $m$, the upper bound error $\epsilon$ and an algorithm $A$ then $\delta=\mathcal{P}\lbrace S\sim\mathcal{D}^m: (h_S=A(S))
+  (L_\mathcal{D}(h_S)\gt\epsilon)\rbrace$.
+  Equivalently, $1-\delta=\mathcal{P}\lbrace S\sim\mathcal{D}^m: L_\mathcal{D}(A(S))\le\epsilon\rbrace$ measures the probability of a training set sampled i.i.d according on some distribution $\mathcal{D}$ is representative. Therefore, it's natural to call $1-\delta$ the <em>confidence parameter</em> of a predictor outputted by some learning algorithm.
+</li>
+</ul>
+
+<p>
+Given a hypothesis class $\mathcal{H}$, the sample complexity function $m_\mathcal{H}$ is defined to be a function of $\epsilon$ and $\delta$ which returns the minimal training set size required for a training set $S$ sampled i.i.d according to some distribution $\mathcal{D}$ to be representative.
+</p>
+
+<p>
+Formally, given $\epsilon, \delta \in (0, 1)$, a distribution $\mathcal{D}$ and a learning algorithm $A$, then the sample complexity function $m_\mathcal{H}(\epsilon, \delta): (0, 1)^2\to\mathbb{N}$ is defined to be:
+</p>
+
+$$
+m_\mathcal{H}(\epsilon, \delta) = \underset{m\in\mathbb{N}}{argmin}\ \mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon \rbrace \ge 1-\delta.
+$$
+
+
+<h2>Testing the Wellness of Defnition</h2>
+<p>
+The definition of the sample complexity function above implicitly assumes that given $m$ is the least natural number that satisfies the condition $\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon \rbrace \ge 1-\delta$, any natural number $m'>m$ also satisfies that condition. But is that a reasonable assumption?
+</p>
+
+<p>
+To answer this, we will consider the following theorem.
+</p>
+
+<p>
+<strong>The no free-lunch theorem.</strong> Let $A$ be any learning algorithm for the task of binary classification with respect to the $0−1$ loss over a domain $\mathcal{X}$. Let $m$ be any number smaller than $|\mathcal{X}|/2$, representing a training set size. Then, there exists a distribution $\mathcal{D}$ over $\mathcal{X}\times\lbrace 0,1\rbrace$ such that:
+</p>
+
+<p>
+<ol>
+<li>
+There exists a function $f:\mathcal{X}\to\lbrace 0, 1\rbrace$ with $L_\mathcal{D}(f)=0$.
+</li>
+<li>
+With probability of at least $1/7$ over the choice of $S\sim \mathcal{D}^m$ we have that $L_\mathcal{D}(A(S))\ge 1/8$.
+</li>
+</ol>
+</p>
+
+<p>
+Part 2. of the theorem clearly shows that given an infinite domain set $\mathcal{X}$, and two numbers $\epsilon, \delta\in(0, 1)$ such that $1-\delta\gt 1/7$ and $\epsilon\gt 1/8$ then there's no any number $m$ such that with probability of at least $1-\delta$ we have that $L_\mathcal{D}(A(S)) \le \epsilon$. Or in symbols, 
+</p>
+
+$$
+(|\mathcal{X}|=\infty)(\epsilon, \delta\in(0, 1))(1-\delta\gt 1/7)(\epsilon\gt 1/8)\rightarrow(\nexists m)(\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon \rbrace \ge 1-\delta).
+$$
+
+<p>
+And this implies that the sample complexity function doesn't always exist in some learning settings.
+</p>
+
+Next, we'll review some property of the sample complexity function.
+
+<h2>Properties of Sample Complexity Function</h2>
+<p>
+<strong>Claim (Monotonicity of Sample Complexity).</strong>
+Show that $m_{\mathcal{H}}$  is monotonically non-increasing in each of its parameters.
+That is, show that given $\delta\in (0,1)$
+, and given $0\lt\epsilon_1\leq\epsilon_2\lt 1$
+, we have that $m_\mathcal{H}(\epsilon_1,\delta)\ge m_\mathcal{H}(\epsilon_2,\delta)$.
+Similarly, show that given $\epsilon\in(0,1)$  and given
+$0\lt\delta_1\leq\delta_2\lt 1$, we have that
+$m_{\mathcal{H}}(\epsilon,\delta_1)\ge m_{\mathcal{H}}(\epsilon,\delta_2).$
+</p>
+
+<p>
+<strong>Proof.</strong> We will prove the former part of the claim, the latter is similar. That is to prove that given $\delta\in (0,1)$
+, and given $0\lt\epsilon_1\leq\epsilon_2\lt 1$
+, we have that $m_\mathcal{H}(\epsilon_1,\delta)\ge m_\mathcal{H}(\epsilon_2,\delta)$.
+</p>
+
+<p>
+Let $M_1=\lbrace m\in\mathbb{N}: \mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge 1-\delta\rbrace$ and  $M_2=\lbrace m\in\mathbb{N}: \mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge 1-\delta\rbrace$.
+
+</p>
+
+<p>
+Since $\epsilon_2\ge\epsilon_1$, we have that
+
+$$
+\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge 1-\delta
+$$
+</p>
+
+<p>
+Therefore $M_1\subseteq M_2 \subseteq\mathbb{N}$.
+</p>
+
+<p>
+Combine this result with the definition of the sample complexity function, we have
+</p>
+
+$$
+\begin{align}
+min\ M_2 \le min\ M_1\\
+\Rightarrow\underset{m\in\mathbb{N}}{argmin}\ (\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge 1-\delta)\le \underset{m\in\mathbb{N}}{argmin}\ (\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge
+1-\delta)\\
+\Leftrightarrow m_\mathcal{H}(\epsilon_2, \delta)\le m_\mathcal{H}(\epsilon_1, \delta)
+\end{align}
+$$
+
