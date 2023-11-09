@@ -114,7 +114,9 @@ $$
 </p>
 
 <p>
-Therefore $M_1\subseteq M_2 \subseteq\mathbb{N}$.
+Therefore, we have
+
+$$M_1\subseteq M_2 \subseteq\mathbb{N}\tag1\label{eq1}$$
 </p>
 
 <p>
@@ -123,10 +125,12 @@ Combine this result with the definition of the sample complexity function, we ha
 
 $$
 \begin{align}
-min\ M_2 \le min\ M_1\\
-\Rightarrow\underset{m\in\mathbb{N}}{argmin}\ (\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge 1-\delta)\le \underset{m\in\mathbb{N}}{argmin}\ (\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge
-1-\delta)\\
-\Leftrightarrow m_\mathcal{H}(\epsilon_2, \delta)\le m_\mathcal{H}(\epsilon_1, \delta)
+&\eqref{eq1}\Leftarrow min\ M_2 \le min\ M_1\\
+&\Rightarrow\underset{m\in\mathbb{N}}{argmin}
+(\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge 1-\delta)
+\le \underset{m\in\mathbb{N}}{argmin}
+(\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge 1-\delta)\\
+&\Leftrightarrow m_\mathcal{H}(\epsilon_2, \delta)\le m_\mathcal{H}(\epsilon_1, \delta)
 \end{align}
 $$
 
