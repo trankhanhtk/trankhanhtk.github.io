@@ -78,7 +78,8 @@ $$
 
 <p>
 And this implies that the sample complexity function doesn't always exist in some learning settings.
-However, under certain learning settings such as when the VC-dimension of the hypothesis class is finite the sample complexity function is well-defined.
+However, under certain learning settings such as when the VC-dimension of the hypothesis class
+is finite the sample complexity function is well-defined.
 </p>
 
 Next, we'll review some property of the sample complexity function.
@@ -96,13 +97,15 @@ $m_{\mathcal{H}}(\epsilon,\delta_1)\ge m_{\mathcal{H}}(\epsilon,\delta_2).$
 </p>
 
 <p>
-<strong>Proof.</strong> We will prove the former part of the claim, the latter is similar. That is to prove that given $\delta\in (0,1)$
+<strong>Proof.</strong> We will prove the former part of the claim, the proof of the latter part is similar.
+That is to prove that given $\delta\in (0,1)$
 , and given $0\lt\epsilon_1\leq\epsilon_2\lt 1$
 , we have that $m_\mathcal{H}(\epsilon_1,\delta)\ge m_\mathcal{H}(\epsilon_2,\delta)$.
 </p>
 
 <p>
-Let $M_1=\lbrace m\in\mathbb{N}: \mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge 1-\delta\rbrace$ and  $M_2=\lbrace m\in\mathbb{N}: \mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge 1-\delta\rbrace$.
+Let $M_1=\lbrace m\in\mathbb{N}: \mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge 1-\delta\rbrace$
+and  $M_2=\lbrace m\in\mathbb{N}: \mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge 1-\delta\rbrace$.
 
 </p>
 
@@ -110,15 +113,16 @@ Let $M_1=\lbrace m\in\mathbb{N}: \mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathc
 Since $\epsilon_2\ge\epsilon_1$, we have that
 
 $$
-\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge 1-\delta
+\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge\mathcal{P}\lbrace S\sim\mathcal{D^m}:
+L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge 1-\delta
 $$
 </p>
 
 <p>
 Therefore, we have
-
-$$M_1\subseteq M_2 \subseteq\mathbb{N}\tag1\label{eq1}$$
 </p>
+
+$$M_1\subseteq M_2 \subseteq\mathbb{N}.\tag1\label{eq1}$$
 
 <p>
 Combine this result with the definition of the sample complexity function, we have
@@ -126,8 +130,8 @@ Combine this result with the definition of the sample complexity function, we ha
 
 $$
 \begin{align}
-\eqref{eq1}&\Leftarrow min\ M_2 \le min\ M_1\\
-&\Lightarrow\underset{m\in\mathbb{N}}{argmin}
+\eqref{eq1}&\Rightarrow min\ M_2 \le min\ M_1\\
+&\Rightarrow\underset{m\in\mathbb{N}}{argmin}
 (\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge 1-\delta)
 \le \underset{m\in\mathbb{N}}{argmin}
 (\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge 1-\delta)\\
@@ -135,3 +139,4 @@ $$
 \end{align}
 $$
 
+This concludes the proof of the first part.$\square$
