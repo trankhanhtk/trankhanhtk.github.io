@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Unpacking the Definition of the Sample Complexity Function and some of its properties"
+title: "Unpacking the Definition of the Sample Complexity Function and Some of Its Properties"
 excerpt: "This post will take a closer look at the definition of sample complexity function for a give hypothesis class and some of its properties"
 permalink: /2023-11-09-unpacking-the-definition-of-sample-complexity-function-for-a-hypothesis-class-and-its-properties
 date: 2023-11-09 16:26:47 +07:00
@@ -78,6 +78,7 @@ $$
 
 <p>
 And this implies that the sample complexity function doesn't always exist in some learning settings.
+However, under certain learning settings such as when the VC-dimension of the hypothesis class is finite the sample complexity function is well-defined.
 </p>
 
 Next, we'll review some property of the sample complexity function.
@@ -125,8 +126,8 @@ Combine this result with the definition of the sample complexity function, we ha
 
 $$
 \begin{align}
-&\eqref{eq1}\Leftarrow min\ M_2 \le min\ M_1\\
-&\Rightarrow\underset{m\in\mathbb{N}}{argmin}
+\eqref{eq1}&\Leftarrow min\ M_2 \le min\ M_1\\
+&\Lightarrow\underset{m\in\mathbb{N}}{argmin}
 (\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_2 \rbrace \ge 1-\delta)
 \le \underset{m\in\mathbb{N}}{argmin}
 (\mathcal{P}\lbrace S\sim\mathcal{D^m}: L_\mathcal{D}(A(S)) \le\epsilon_1 \rbrace \ge 1-\delta)\\
