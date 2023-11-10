@@ -1,0 +1,75 @@
+---
+layout: post
+title: "In Uniform Convergence Learning, The Expectation of the Loss from any Learner Approaches Zero for a Large Enough Training Set Size"
+excerpt: "This post explains why for hythothesis class with uniform convergence property, the expectation of the loss from any learner approaches zero for large enough sample size."
+permalink: /in-uniform-converge-learning-expectation-of-loss-of-any-learner-approaches-0-for-large-sample-size
+date: 2023-11-10 17:01:33 +07:00
+---
+
+<p>
+This posts explains why the expectation of the loss that comes from any learner approaches $0$
+for a large enough training set size by showing the following claim is true.
+</p>
+
+<p>
+<strong>Claim.</strong>
+Given a domain set $Z$, for any probability distribution $\mathcal{D}$
+, any learning algorithm $A$ that takes the training set $S\sim\mathcal{D}^m$ and any loss function
+$L: A(S)\times Z\to[0, 1]$, the following two statements are equivalents:
+</p>
+
+<ul>
+<li>
+1. Forevery $\epsilon, \delta\gt 0$, there exists $m(\epsilon,\delta)$
+such that $\forall m\ge m(\epsilon,\delta)$
+
+$$
+\mathcal{P}\lbrace(h_S=A(S))\in\mathcal{H}: L_\mathcal{D}(h_S)\gt\epsilon\rbrace\lt\delta
+$$
+</li>
+
+<li>
+2. $\lim_{m \to \infty} \underset{S\sim\mathcal{D}^m}{\mathbb{E}}[ L_\mathcal{D}(A(S))]=0$
+</li>
+
+</ul>
+
+<p>
+<strong>Proof.</strong>
+(1. $\Rightarrow$ 2.) Assume condition in 1. holds and denote by the random variable $X$ the loss $L_\mathcal{D}(A(S))$. Then we have
+
+$$
+\begin{align}
+\underset{S\sim\mathcal{D}^m}{\mathbb{E}}[ L_\mathcal{D}(A(S))]&=\underset{S\sim\mathcal{D}^m}{\mathbb{E}}[X]\newline
+&=\int_{0}^{1} xf(x)\ dx\newline
+&=\int_{0}^{1}(1-F(x))\ dx\newline
+&=\int_{0}^{1}\mathbb{P}\lbrace X \gt x\rbrace\ dx\newline
+&\le\int_{0}^{1}\epsilon\  dx\hspace{1em}\text{ for any }\epsilon\in(0, 1)\newline
+&=\epsilon x\Big|_0^1\newline
+&=\epsilon.
+\end{align}
+$$
+</p>
+
+<p>
+This implies that $\lim_{m \to \infty} \underset{S\sim\mathcal{D}^m}{\mathbb{E}}[ L_\mathcal{D}(A(S))]=0$.
+</p>
+
+<p>
+(2. $\Rightarrow$ 1.) Assume condition in 2. holds and when $m\to\infty$ from Markov's inequality, we have that
+</p>
+
+$$
+\begin{align}
+\mathbb{P}\lbrace X\gt\epsilon\rbrace&\le \frac{\mathbb{E}[X]}{\epsilon}\newline
+&\lt\frac{\delta\times\epsilon}{\epsilon}\newline
+&=\delta.
+\end{align}
+$$
+
+<p>
+The above inequality shows that for any $\epsilon, \delta\in(0, 1)$, if we choose $m$ large enough, say $\forall m\ge m_\mathcal{H}^{UC}(\epsilon, \delta)$ for some function $m_\mathcal{H}^{UC}: (0, 1)^2\to\mathbb{N}$, we always have $\mathbb{P}\lbrace (h_S=A(S))\in\mathcal{H}: L_\mathcal{D}(A(S))\gt\epsilon\rbrace\lt\delta$.
+</p>
+
+
+This concludes our proof of the claim.$\square$
