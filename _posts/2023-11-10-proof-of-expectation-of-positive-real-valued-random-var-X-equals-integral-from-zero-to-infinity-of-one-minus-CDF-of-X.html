@@ -20,7 +20,7 @@ $$
 
 $$
 \begin{align}
-E(X) &= \int_0^\infty (1-F(x)) \ dx.\newline
+\int_0^\infty (1-F(x)) \ dx &= \int_0^\infty  \left[ \int_0^\infty f(t)\ dt - F(x)  \right] dx\newline
 &= \int_0^\infty  \left[ \int_0^\infty f(t)\ dt - \int_0^xf(t)\ dt  \right] dx\newline
 &= \int_0^\infty  \int_x^\infty  f(t)\ dt\ dx\newline
 &= \int_0^\infty  \int_0^t  f(t)\ dx\ dt\newline
