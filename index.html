@@ -3,28 +3,4 @@ layout: home
 title: "Home page"
 permalink: /
 ---
-<h1>Latest Posts</h1>
-
-<div class="mt-5">
-  {% for post in site.posts %}
-    <article class="mb-4">
-      <header>
-        <h3 class="h4"><a href="{{ post.url }}" title="{{ post.title }}" class="link-dark">{{ post.title }}</a></h3>
-      </header>
-      {% if post.excerpt %}
-        <section>
-          <a href="{{ post.url }}" title="{{ post.title }}" class="mt-2 text-dark mt-2 text-dark link-underline link-underline-opacity-0">{{ post.excerpt }}</a>
-        </section>
-      {% endif %}
-      <footer>
-        Created at
-        {% if post.date %}
-          {{post.date}}  
-        {% else %}
-          N/A
-        {% endif %}
-        
-      </footer>
-    </article>
-  {% endfor %}
-</div>
+<h1>This is an old website, please visit the new wesite <a href="https://khanhth.github.io/">https://khanhth.github.io/</a>.</h1>
